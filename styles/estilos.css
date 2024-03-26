@@ -1,6 +1,6 @@
 
   body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Fuente de Google Fonts para un estilo moderno y legible */
     margin: 0;
     padding: 0;
     background-color: #7758e0; /* Un morado muy claro como fondo para no cansar la vista */
@@ -11,7 +11,7 @@
     text-align: center;
     margin: 20px;
     padding: 20px;
-    background-color: #786c85; /* Fondo blanco para el contenedor, para resaltar sobre el fondo general */
+    background-color: #878688; /* Fondo blanco para el contenedor, para resaltar sobre el fondo general */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
     border-radius: 8px; /* Bordes redondeados para suavizar la estética */
 }
@@ -25,6 +25,6 @@ p {
 }
 
 canvas {
-    border: 2px solid #5e4b8b; /* Borde morado para los canvas, haciéndolos resaltar */
+    border: 2px solid #000000; /* Borde morado para los canvas, haciéndolos resaltar */
     margin: 10px; /* Espacio alrededor de cada canvas para que no se vean apretados */
 }

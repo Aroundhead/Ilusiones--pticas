@@ -311,12 +311,6 @@ function drawExtraIllusion7(canvasId) {
     ctx.lineTo(i / 2, 0);
     ctx.stroke();
 
-    // flecha hacia arriba izquierda
-    ctx.beginPath();
-    ctx.moveTo(i / 2, h / 2 - i / 2);
-    ctx.lineTo(w / 2, i / 2);
-    ctx.stroke();
-
     // Parte arriba derecha
     ctx.beginPath();
     ctx.moveTo(w - i / 2, 0);
@@ -341,14 +335,33 @@ function drawExtraIllusion7(canvasId) {
    
   }
 
-  for( let i = 0; i <= w; i += 5){
+  for( let i = 0; i <= w/4; i += 5){
     
     //flecha hacia arriba derecha
     ctx.beginPath();
-    ctx.moveTo((w/4)*3 - i / 2, h / 2 - i);
-    ctx.lineTo(w / 2, (h/2)-i / 2);
+    ctx.moveTo((w/4)*3 - i, h / 2 - i);
+    ctx.lineTo(w/2 , ((h/4))-i);
     ctx.stroke();
   }
+
+  for( let i = 0; i <= w/4; i += 5){
+    
+    //flecha hacia arriba izquierda
+    ctx.beginPath();
+    ctx.moveTo((w/4) + i, h / 2 - i);
+    ctx.lineTo(w/2 , ((h/4))-i);
+    ctx.stroke();
+  }
+
+  for( let i = 0; i <= w/4; i += 5){
+    
+    //flecha hacia arriba-centro
+    ctx.beginPath();
+    ctx.moveTo((w/4) + i , h / 2 - i);
+    ctx.lineTo(w/2 +i, (h/4)+i);
+    ctx.stroke();
+  }
+
   for( let i = 0; i <= (w/4); i += 5){
     ctx.beginPath();
     ctx.moveTo(0+i,((h/4)*3)-i);
@@ -360,6 +373,33 @@ function drawExtraIllusion7(canvasId) {
     ctx.beginPath();
     ctx.moveTo(w-i,(h/4)*3-i);
     ctx.lineTo((w/4)*3+(i), (h/2-i));
+    ctx.stroke();
+  }
+
+  for( let i = 0; i <= w/4; i += 10){
+    
+    //flecha hacia abajo-centro
+    ctx.beginPath();
+    ctx.moveTo((w/4)*3 - i, h / 2 + i);
+    ctx.lineTo((w/2)- i, (((h/4)*3)-i));
+    ctx.stroke();
+  }
+
+  for( let i = 0; i <= w/4; i += 10){
+    
+    //flecha hacia abajo izquierda
+    ctx.beginPath();
+    ctx.moveTo((w/2), (150)+i);
+    ctx.lineTo(w/2-i , ((h/4)*3)-i);
+    ctx.stroke();
+  }
+
+  for( let i = 0; i <= w/4; i += 10){
+    
+    //flecha hacia abajo izquierda
+    ctx.beginPath();
+    ctx.moveTo((w/2), ((h/4)*3)-i);
+    ctx.lineTo(w/4+i , ((h/4)*3)-i);
     ctx.stroke();
   }
 }
