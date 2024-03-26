@@ -1,16 +1,30 @@
-body {
-    font-family: Arial, sans-serif;
+
+  body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-  }
-  .container {
+    background-color: #7758e0; /* Un morado muy claro como fondo para no cansar la vista */
+    color: #4b3f72; /* Un morado oscuro para el texto, asegurando buena legibilidad */
+}
+
+.container {
     text-align: center;
     margin: 20px;
-  }
-  canvas {
-    border: 1px solid black;
-  }
-  #menuButton {
-    margin-top: 20px;
-  }
-  
+    padding: 20px;
+    background-color: #786c85; /* Fondo blanco para el contenedor, para resaltar sobre el fondo general */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+    border-radius: 8px; /* Bordes redondeados para suavizar la estética */
+}
+
+h1, h2, h3 {
+    color: #5e4b8b; /* Un morado más intenso para los títulos y encabezados */
+}
+
+p {
+    color: #4b3f72; /* Mantenemos el morado oscuro para el texto para facilitar la lectura */
+}
+
+canvas {
+    border: 2px solid #5e4b8b; /* Borde morado para los canvas, haciéndolos resaltar */
+    margin: 10px; /* Espacio alrededor de cada canvas para que no se vean apretados */
+}

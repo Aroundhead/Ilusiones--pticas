@@ -300,36 +300,70 @@ function drawIlusion2_8(canvasId) {
 // Ilusion Extra 7
 function drawExtraIllusion7(canvasId) {
   const canvas = document.getElementById(canvasId);
-  const context = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d');
   const h = canvas.height;
   const w = canvas.width;
-  for (let i = 0; i <= w/2; i += 5) {
-    context.beginPath();
-    // Techo
-    context.moveTo(0, h/2 - i);
-    context.lineTo(i, 0);
-    context.moveTo(w, h/2 - i);
-    context.lineTo(w - i, 0);
-    context.stroke();
-    // Centro
-  }
-  for(let i= 0; i <= w/2; i += 5) {
-    context.beginPath();
-    context.moveTo(w, i);
-    context.lineTo(w - i, h/2);
-    context.stroke();
+
+  for (let i = 0; i <= w; i += 10) {
+    // Parte arriba izquierda
+    ctx.beginPath();
+    ctx.moveTo(0, h / 2 - i / 2);
+    ctx.lineTo(i / 2, 0);
+    ctx.stroke();
+
+    // flecha hacia arriba izquierda
+    ctx.beginPath();
+    ctx.moveTo(i / 2, h / 2 - i / 2);
+    ctx.lineTo(w / 2, i / 2);
+    ctx.stroke();
+
+    // Parte arriba derecha
+    ctx.beginPath();
+    ctx.moveTo(w - i / 2, 0);
+    ctx.lineTo(w, h / 2 - i / 2);
+    ctx.stroke();
+
+
+    // Parte abajo izquierda
+    ctx.beginPath();
+    ctx.moveTo(0, h / 2 + i / 2);
+    ctx.lineTo(i / 2, h);
+    ctx.stroke();
+
+    // Parte abajo derecha
+    ctx.beginPath();
+    ctx.moveTo(w, h / 2 + i / 2);
+    ctx.lineTo(w - i / 2, h);
+    ctx.stroke();
+
+
+    // flecha izquierda
+   
   }
 
-  for (let i = 0; i <= w/4; i += 5) {
-    // Piso
-    context.beginPath();
-    context.moveTo(w/4 + i, h);
-    context.lineTo(w/2, h - i);
-    context.moveTo(3*w/4 - i, h);
-    context.lineTo(w/2, h - i);
-    context.stroke();
+  for( let i = 0; i <= w; i += 5){
+    
+    //flecha hacia arriba derecha
+    ctx.beginPath();
+    ctx.moveTo((w/4)*3 - i / 2, h / 2 - i);
+    ctx.lineTo(w / 2, (h/2)-i / 2);
+    ctx.stroke();
+  }
+  for( let i = 0; i <= (w/4); i += 5){
+    ctx.beginPath();
+    ctx.moveTo(0+i,((h/4)*3)-i);
+    ctx.lineTo(w/4-(i), (h/2)-i);
+    ctx.stroke();
+  }
+  // flecha derecha
+  for( let i = 0; i <= (w/4); i += 5){
+    ctx.beginPath();
+    ctx.moveTo(w-i,(h/4)*3-i);
+    ctx.lineTo((w/4)*3+(i), (h/2-i));
+    ctx.stroke();
   }
 }
+
 
 function drawExtraIllusion8(canvasId) {
   const canvas = document.getElementById(canvasId);
@@ -454,70 +488,93 @@ function drawExtraIllusion0(canvasId) {
     context.stroke();
   }
 }
-
-function drawExtraIllusion5(canvasId) {
+function drawRadialIllusion(canvasId) {
   const canvas = document.getElementById(canvasId);
-  const ctx = canvas.getContext('2d');
-  const h = canvas.height;
+  const context = canvas.getContext('2d');
   const w = canvas.width;
+  const h = canvas.height;
 
-  for (let i = 0; i <= w; i += 10) {
-    // Parte arriba izquierda
-    ctx.beginPath();
-    ctx.moveTo(0, h / 2 - i / 2);
-    ctx.lineTo(i / 2, 0);
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(i / 2, h / 2 - i / 2);
-    ctx.lineTo(w / 2, i / 2);
-    ctx.stroke();
-
-    // Parte arriba derecha
-    ctx.beginPath();
-    ctx.moveTo(w - i / 2, 0);
-    ctx.lineTo(w, h / 2 - i / 2);
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(w - i / 2, h / 2 - i / 2);
-    ctx.lineTo(w / 2, i / 2);
-    ctx.stroke();
-
-    // Parte abajo izquierda
-    ctx.beginPath();
-    ctx.moveTo(0, h / 2 + i / 2);
-    ctx.lineTo(i / 2, h);
-    ctx.stroke();
-
-    // Parte abajo derecha
-    ctx.beginPath();
-    ctx.moveTo(w, h / 2 + i / 2);
-    ctx.lineTo(w - i / 2, h);
-    ctx.stroke();
-
-    // Estrella
-    ctx.beginPath();
-    ctx.moveTo(w / 4 + i / 4, 3 * h / 4);
-    ctx.lineTo(w / 2, 3 * h / 4 - i / 4);
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(3 * w / 4 - i / 4, 3 * h / 4);
-    ctx.lineTo(w / 2, 3 * h / 4 - i / 4);
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(w / 4 + i / 4, 3 * h / 4);
-    ctx.lineTo(w / 2, 3 * h / 4 + i / 4);
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(3 * w / 4 - i / 4, 3 * h / 4);
-    ctx.lineTo(w / 2, 3 * h / 4 + i / 4);
-    ctx.stroke();
+  for (let angle = 0; angle < 360; angle += 5) {
+    let rad = (angle * Math.PI) / 180;
+    context.beginPath();
+    context.moveTo(w/2, h/2);
+    context.lineTo(w/2 + Math.cos(rad) * w/2, h/2 + Math.sin(rad) * h/2);
+    context.stroke();
   }
 }
+
+function drawTwistedGridIllusion(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  const context = canvas.getContext('2d');
+  const w = canvas.width;
+  const h = canvas.height;
+  const step = 10;
+
+  for (let i = step; i <= w; i += step) {
+    context.beginPath();
+    context.moveTo(i, 0);
+    context.lineTo(0, i);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(w, i);
+    context.lineTo(i, h);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(i, h);
+    context.lineTo(w, h - i);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(0, h - i);
+    context.lineTo(w - i, 0);
+    context.stroke();
+  }
+}
+function drawConcentricSquaresIllusion(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  const context = canvas.getContext('2d');
+  const w = canvas.width;
+  const h = canvas.height;
+  const step = 20;
+  const center_x = w / 2;
+  const center_y = h / 2;
+  let size = Math.min(w, h) / 10;
+
+  while (size < w) {
+    context.beginPath();
+    context.rect(center_x - size / 2, center_y - size / 2, size, size);
+    context.stroke();
+    size += step;
+  }
+}
+
+function drawExtraIllusion1(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  const context = canvas.getContext('2d');
+  const h = canvas.height;
+  const w = canvas.width;
+  for (let i = 0; i <= w; i += 5) {
+    context.beginPath();
+    context.moveTo(w, h/2);
+    context.lineTo(100, h - i);
+    context.stroke();
+  }
+  for (let i = 0; i <= w; i += 5) {
+    context.beginPath();
+    context.moveTo(0, h/2);
+    context.lineTo(100, h - i);
+    context.stroke();
+  }
+  for (let i = 0; i <= w; i += 5) {
+    context.beginPath();
+    context.moveTo(w-i, h-i);
+    context.lineTo(w-i, h/2-i);
+    context.stroke();
+  }
+}
+
 
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -545,6 +602,10 @@ function drawExtraIllusion5(canvasId) {
   drawExtraIllusion8('extraIllusion8')
   drawExtraIllusion9('extraIllusion9');
   drawExtraIllusion0('extraIllusion0');
+  drawExtraIllusion1('extraIllusion1');
+  drawRadialIllusion('radialIllusion');
+  drawTwistedGridIllusion('twistedGridIllusion');
+  drawConcentricSquaresIllusion('concentricSquaresIllusion');
   });
 
   
